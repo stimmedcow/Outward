@@ -36,6 +36,10 @@ public partial class QuickSlotPanel : UIElement
 			{
 				// Find our default StabilityDisplay_Simple object
 				StabilityDisplay_Simple stabilityDisplay = UnityEngine.Object.FindObjectOfType<StabilityDisplay_Simple>();
+				// Streamline the stability display so it's not so far from the bottom of the screen.
+				// This also means the hotbar gets placed closer to the bottom of the screen, but
+				// still with neat spacing.
+				stabilityDisplay.transform.position = new Vector3(stabilityDisplay.transform.position.x, stabilityDisplay.transform.position.y / 4f, stabilityDisplay.transform.position.z);
 				// Get the screen coords of its corners
 				Vector3[] stabilityDisplayCorners = new Vector3[4];
 				stabilityDisplay.RectTransform.GetWorldCorners(stabilityDisplayCorners);
