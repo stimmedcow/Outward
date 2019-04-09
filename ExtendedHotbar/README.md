@@ -130,13 +130,23 @@ New: `7. ControlsInput-New.cs`
 
 ## 8. Add new input logic to LocalCharacterControl for quickslots when the InputAction is triggered.
 
-Our last step is to add input checking logic to UpdateQuickSlots to check for our new InputActions, and trigger the correct quickslot if the bound input key is pressed.
+Our last main step is to add input checking logic to UpdateQuickSlots to check for our new InputActions, and trigger the correct quickslot if the bound input key is pressed.
 
 Assembly: `Assembly-CSharp`
 
 Old: `8. LocalCharacterControl-UpdateQuickSlots-Old.cs`
 
 New: `8. LocalCharacterControl-UpdateQuickSlots-New.cs`
+
+## 9. Reposition the QuickSlotPanel so it's not overlapping the StabilityDisplay_Simple object
+
+With new quickslots taking up more screen space, there's an ugly overlap with the stability bar. This change will reposition the quickslot bar so it's nicely placed above the stability bar. There's still a possible overlap issue with buff icons on the far left side of the screen though.
+
+Assembly: `Assembly-CSharp`
+
+Old: `9. QuickSlotPanel-Update-Old.cs`
+
+New: `9. QuickSlotPanel-Update-New.cs`
 
 # Final Remarks
 
