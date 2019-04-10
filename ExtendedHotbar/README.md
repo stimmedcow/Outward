@@ -2,7 +2,9 @@
 A mod to extend the hotbar by 8 slots and improve the GUI experience when using these changes.
 
 # Previews
-https://imgur.com/a/21lI6O3 (New)
+https://imgur.com/a/I2WANrb (Latest)
+
+https://imgur.com/a/21lI6O3 (Old)
 
 https://youtu.be/iJV-L4mDNF4 (Old)
 
