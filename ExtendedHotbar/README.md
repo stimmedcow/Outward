@@ -1,5 +1,5 @@
 # ExtendedHotbar
-A mod to extend the hotbar by 8 slots.
+A mod to extend the hotbar by 8 slots and improve the GUI experience when using these changes.
 
 # Previews
 https://imgur.com/a/21lI6O3 (New)
@@ -46,7 +46,7 @@ As the game updates, the specifics of this section will change, but there will b
 
 NOTE: After you perform an edit, you need to save the module, as later changes require the assembly to have been changed with earlier edits so the code compiles correctly!
 
-NOTE: In most cases, you will want to simply edit the relevant method (Edit Method (C#)...). Only a few edits required you to actually edit the entire class (Edit Class (C#)...) in dnSpy (#4, #7)
+NOTE: In most cases, you will want to simply edit the relevant method (Edit Method (C#)...). Only a few edits required you to actually edit the entire class (Edit Class (C#)...) in dnSpy (#4, #7, #10, #11)
 
 NOTE: I use CodeCompare, but use any diff program to check old vs new files to get a clear idea of what's changed more easily!
 
@@ -154,6 +154,8 @@ New: `9. QuickSlotPanel-Update-New.cs`
 
 One of the features I most wanted was to display the remaining time of a buff/debuff under the icons. This and the next set of changes help accomplish that. Eventually, a config option will be added to enable/disable the text if users don't want this feature.
 
+This set of changes requires a class edit, so be sure to note all the changes in the entire class.
+
 Assembly: `Assembly-CSharp`
 
 Old: `10. StatusEffectIcon-Old.cs`
@@ -165,6 +167,8 @@ New: `10. StatusEffectIcon-New.cs`
 With the hotbar taking up most of the bottom of the screen, we want a more natural display for those icons, which the top left corner of the screen has typically been used in a lot of games. I prefer that location myself as well, so this set of changes moves the panel and changes the wrapping, so icons are displayed across the top of the screen. We'll eventually need to adjust the position of the compass, so that will be added in a future change.
 
 NOTE: It might be possible for more icons that extend past the screen to display off-screen, but I'll look into fixing that if it becomes an issue. For now, on average, I don't think it's common to fill the entire width of the screen even on smaller resolutions, as the lowest I can test is 1152 on my system and it still looked good.
+
+This set of changes requires a class edit, so be sure to note all the changes in the entire class.
 
 Assembly: `Assembly-CSharp`
 
