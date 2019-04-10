@@ -1,8 +1,10 @@
 # ExtendedHotbar
 A mod to extend the hotbar by 8 slots.
 
-# Preview
-https://youtu.be/iJV-L4mDNF4
+# Previews
+https://imgur.com/a/21lI6O3 (New)
+
+https://youtu.be/iJV-L4mDNF4 (Old)
 
 # About
 This is **not** a [Partiality](https://github.com/PartialityModding) mod!
@@ -147,6 +149,28 @@ Assembly: `Assembly-CSharp`
 Old: `9. QuickSlotPanel-Update-Old.cs`
 
 New: `9. QuickSlotPanel-Update-New.cs`
+
+## 10. Update the StatusEffectIcon class to support displaying a timer under the icon
+
+One of the features I most wanted was to display the remaining time of a buff/debuff under the icons. This and the next set of changes help accomplish that. Eventually, a config option will be added to enable/disable the text if users don't want this feature.
+
+Assembly: `Assembly-CSharp`
+
+Old: `10. StatusEffectIcon-Old.cs`
+
+New: `10. StatusEffectIcon-New.cs`
+
+## 11. Update the StatusEffectPanel class to change the layout and position of icons
+
+With the hotbar taking up most of the bottom of the screen, we want a more natural display for those icons, which the top left corner of the screen has typically been used in a lot of games. I prefer that location myself as well, so this set of changes moves the panel and changes the wrapping, so icons are displayed across the top of the screen. We'll eventually need to adjust the position of the compass, so that will be added in a future change.
+
+NOTE: It might be possible for more icons that extend past the screen to display off-screen, but I'll look into fixing that if it becomes an issue. For now, on average, I don't think it's common to fill the entire width of the screen even on smaller resolutions, as the lowest I can test is 1152 on my system and it still looked good.
+
+Assembly: `Assembly-CSharp`
+
+Old: `11. StatusEffectPanel-Old.cs`
+
+New: `11. StatusEffectPanel-New.cs`
 
 # Final Remarks
 
