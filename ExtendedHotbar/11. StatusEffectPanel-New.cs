@@ -75,7 +75,7 @@ public class StatusEffectPanel : UIElement
 			statusIcon5.SetIcon(UIUtilities.SummonGhostStatusIcon);
 			statusIcon5.IncreaseStack(1);
 		}
-		Reposition();
+		this.Reposition();
 	}
 
 	private void Reposition()
@@ -92,13 +92,13 @@ public class StatusEffectPanel : UIElement
 		// Calc the panel height
 		Vector3[] v = new Vector3[4];
 		component.rectTransform.GetWorldCorners(v);
-		float height = base.RectTransform.offsetMax.y - base.RectTransform.offsetMin.y;
-		height = v[1].y - v[0].y;
+		// Store this so we can adjust our compass position later!
+		StatusEffectPanel.IconHeight = v[1].y - v[0].y;
 		// Change the layout to stretch from the left side of the screen all the way to the right, and maintain the height
 		base.RectTransform.offsetMin = new Vector2(0f, 0f);
-		base.RectTransform.offsetMax = new Vector2((float)Screen.width, height);
+		base.RectTransform.offsetMax = new Vector2((float)Screen.width, StatusEffectPanel.IconHeight);
 		// Move the panel to the top left corner of the screen to resemble a traditional buff/debuff bar.
-		float y = (float)Screen.height - height;
+		float y = (float)Screen.height - StatusEffectPanel.IconHeight;
 		base.transform.position = new Vector3(base.transform.position.x, y, base.transform.position.z);
 	}
 
@@ -137,4 +137,6 @@ public class StatusEffectPanel : UIElement
 
 	// Token: 0x04003881 RID: 14465
 	private Disease m_cachedDisease;
+	
+	public static float IconHeight;
 }

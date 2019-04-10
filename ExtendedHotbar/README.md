@@ -176,6 +176,16 @@ Old: `11. StatusEffectPanel-Old.cs`
 
 New: `11. StatusEffectPanel-New.cs`
 
+## 12. Reposition UICompass so it's not overlapping the StatusEffectPanel
+
+Once StatusEffectPanel has an icon and we know its height, we'll move the UICompass down so it doesn't overlap anymore.
+
+Assembly: `Assembly-CSharp`
+
+Old: `12. UICompass-Update-Old.cs`
+
+New: `12. UICompass-Update-New.cs`
+
 # Final Remarks
 
 This might seem very daunting at first, but once you understand the ideas behind the changes and get familiar with dnSpy, this mod only takes a few minutes to apply. Likewise, it only adds 8 slots, but if you wanted more or less, the code should be clear enough as to how to accomplish that. However, adding more slots with smaller resolutions begins to show some issues, so additional mods to modify the GUI are still needed.
