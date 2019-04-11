@@ -42,6 +42,10 @@ By doing this, we now have the first cornerstone of the modding framework done, 
 
 To summarize, my approach for modding is to do specific core changes, and then look into generalizing the changes that allows them to work to expose that functionality for other mods via a modding framework. The aforementioned modding framework doesn't exist yet, though.
 
+# Known Issues
+
+Certain resolutions break the logic to reposition gui elements for some reason. I'm currently looking into why it happens. Ideally, I'd like this mod to work the same way across all resolutions if possible.
+
 # Process
 
 This is a summary of what this mod does and how its currently accomplished. It is not the process I used to develop this mod, and it does not follow the development order of how things were done.
