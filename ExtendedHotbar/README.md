@@ -2,7 +2,7 @@
 A mod to extend the hotbar by 8 slots and improve the GUI experience when using these changes.
 
 # Previews
-https://imgur.com/ZMkNegb (Latest)
+https://imgur.com/a/AlgClu8 (Latest)
 
 https://imgur.com/a/I2WANrb (Old)
 
@@ -196,7 +196,7 @@ New: `12. UICompass-Update-New.cs`
 
 This might seem very daunting at first, but once you understand the ideas behind the changes and get familiar with dnSpy, this mod only takes a few minutes to apply. Likewise, it only adds 8 slots, but if you wanted more or less, the code should be clear enough as to how to accomplish that. However, adding more slots with smaller resolutions begins to show some issues, so additional mods to modify the GUI are still needed.
 
-I wrote this document and performed the edits at the same time, so there should not be any mistakes in the changes listed. Upon finishing the edits, you should be able to launch Outward and be able to bind the new actions in settings, and then assign items/skills in game!
+I wrote this document and performed the edits at the same time, so there should not be any mistakes in the changes listed. However, as I've done edits and made changes, it's possible something gets out of sync. Please report any issues if that's the case. Upon finishing the edits, you should be able to launch Outward and be able to bind the new actions in settings, and then assign items/skills in game!
 
 Future work, if I stick with Outward modding, would be to move a lot of these changes into a modding framework to start building around, or at least automate the process of applying these mods to a clean Assembly-CSharp/Rewired_Core.
 
