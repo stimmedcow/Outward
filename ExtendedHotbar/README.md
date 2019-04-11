@@ -44,8 +44,9 @@ To summarize, my approach for modding is to do specific core changes, and then l
 
 # Known Issues
 
-This mod does not support changing the resolution in game. You should change to the resolution and display mode you want, and then restart the client in that new mode. This is due to the way this mod adds logic that moves GUI controls relative to one another, so 
-when a resolution change happens, the GUI controls are in unexpected positions and then get modified again.
+* This mod does not support changing the resolution in game. You should change to the resolution and display mode you want, and then restart the client in that new mode. This is due to the way this mod adds logic that moves GUI controls relative to one another, so when a resolution change happens, the GUI controls are in unexpected positions and then get modified again.
+
+* The icon timer text is not really centered under the icon itself. This is due to the way the textures are aligned and how the GUI elements are spaced (overlapping). I want to fix this, but it will require some new logic to get the texture in the center of the area, so I can then put the timer text in the center under it.
 
 # Process
 
