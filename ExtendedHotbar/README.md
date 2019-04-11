@@ -2,7 +2,9 @@
 A mod to extend the hotbar by 8 slots and improve the GUI experience when using these changes.
 
 # Previews
-https://imgur.com/a/I2WANrb (Latest)
+https://imgur.com/ZMkNegb (Latest)
+
+https://imgur.com/a/I2WANrb (Old)
 
 https://imgur.com/a/21lI6O3 (Old)
 
@@ -145,6 +147,8 @@ New: `8. LocalCharacterControl-UpdateQuickSlots-New.cs`
 ## 9. Reposition the QuickSlotPanel so it's not overlapping the StabilityDisplay_Simple object
 
 With new quickslots taking up more screen space, there's an ugly overlap with the stability bar. This change will reposition the quickslot bar so it's nicely placed above the stability bar. There's still a possible overlap issue with buff icons on the far left side of the screen though.
+
+In addition, we also have code to center the bar based on its contents rather than being placed on the far right side of the screen and then fill in content towards the left.
 
 Assembly: `Assembly-CSharp`
 

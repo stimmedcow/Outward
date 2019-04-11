@@ -47,6 +47,25 @@ public partial class QuickSlotPanel : UIElement
 				// stability display as there is below it, to make it look nice and neat.
 				float newY = stabilityDisplayCorners[1].y + stabilityDisplayCorners[0].y;
 				base.transform.parent.position = new Vector3(base.transform.parent.position.x, newY, base.transform.parent.position.z);
+				// Logic to center the panel so the look and feel is more consistent with normal games
+				bool centerBar = true;
+				if (centerBar)
+				{
+					Vector3[] v0 = new Vector3[4];
+					Vector3[] v1 = new Vector3[4];
+					this.m_quickSlotDisplays[0].RectTransform.GetWorldCorners(v0);
+					this.m_quickSlotDisplays[1].RectTransform.GetWorldCorners(v1);
+					// The width of each icon
+					var qsdWidth = v0[2].x - v0[1].x;
+					// The width of the space between each icon
+					var qsdSpacer = v1[0].x - v0[2].x;
+					// Total space per icon/spacer pair
+					var elemWidth = qsdWidth + qsdSpacer;
+					// How long our bar really is
+					var realWidth = elemWidth * this.m_quickSlotDisplays.Length;
+					// Re-center it based on actual content
+					base.transform.parent.position = new Vector3(realWidth / 2.0f + elemWidth / 2.0f, base.transform.parent.position.y, base.transform.parent.position.z);
+				}
 			}
 		}
 	}
