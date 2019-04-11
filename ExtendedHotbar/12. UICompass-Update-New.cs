@@ -20,7 +20,7 @@ public partial class UICompass : UIElement
 		if (!StatusEffectPanel.IconHeight.Equals(0f))
 		{
 			// Move the compass down a bit so the icon + timer text does not overlap it anymore
-			base.transform.position = new Vector3(base.transform.position.x, (float)Screen.height - StatusEffectPanel.IconHeight * 1.25f, base.transform.position.y);
+			base.transform.position = new Vector3(base.transform.position.x, (float)Screen.height - StatusEffectPanel.IconHeight * 1.25f, base.transform.position.z);
 		}
 	}
 }

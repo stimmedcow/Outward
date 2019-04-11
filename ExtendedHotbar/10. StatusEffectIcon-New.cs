@@ -18,12 +18,10 @@ public class StatusEffectIcon : UIElement
 		{
 			this.m_icon = base.GetComponent<Image>();
 		}
-
-		// Create the TextGenerator once
-		m_textGenerator = new TextGenerator();
-
+		
 		// Create a new Text label for the timer
 		this.m_lblTimer = UnityEngine.Object.Instantiate<Text>(this.m_lblStack);
+		this.m_lblTimer.text = "00:00";
 		this.m_lblTimer.transform.SetParent(base.transform);
 		this.m_lblTimer.transform.ResetLocal(true);
 	}
@@ -77,8 +75,9 @@ public class StatusEffectIcon : UIElement
 			this.m_lblTimer.text = string.Format("{0:D2}:{1:D2}", timeSpan.Minutes, timeSpan.Seconds);
 			// We want to center the text under the icon, sp get the width of the string, and then adjust the local position.
 			TextGenerationSettings generationSettings = this.m_lblTimer.GetGenerationSettings(this.m_lblTimer.rectTransform.rect.size);
-			float preferredWidth = m_textGenerator.GetPreferredWidth(this.m_lblTimer.text, generationSettings);
-			this.m_lblTimer.transform.localPosition = new Vector3(-preferredWidth / 2f, 0f, 0f);
+			TextGenerator textGenerator = new TextGenerator();
+			float preferredWidth = textGenerator.GetPreferredWidth(this.m_lblTimer.text, generationSettings);
+			this.m_lblTimer.transform.position = new Vector3(this.m_icon.transform.position.x - preferredWidth / 2f, this.m_lblTimer.transform.position.y, this.m_lblTimer.transform.position.z);
 		}
 		if (this.m_currentStack == 0)
 		{
@@ -169,9 +168,6 @@ public class StatusEffectIcon : UIElement
 	// The effect this icon represents
 	private StatusEffect m_effect;
 
-	// TextGenerator to get the display width of the string we add
-	private TextGenerator m_textGenerator;
-	
 	// The equipment this icon represents
 	private SummonedEquipment m_summonedEquipment;
 

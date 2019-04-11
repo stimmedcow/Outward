@@ -44,7 +44,8 @@ To summarize, my approach for modding is to do specific core changes, and then l
 
 # Known Issues
 
-Certain resolutions break the logic to reposition gui elements for some reason. I'm currently looking into why it happens. Ideally, I'd like this mod to work the same way across all resolutions if possible.
+This mod does not support changing the resolution in game. You should change to the resolution and display mode you want, and then restart the client in that new mode. This is due to the way this mod adds logic that moves GUI controls relative to one another, so 
+when a resolution change happens, the GUI controls are in unexpected positions and then get modified again.
 
 # Process
 
