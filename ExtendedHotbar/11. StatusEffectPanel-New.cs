@@ -36,14 +36,14 @@ public class StatusEffectPanel : UIElement
 					if (!string.IsNullOrEmpty(statusIconIdentifier))
 					{
 						StatusEffectIcon statusIcon = this.GetStatusIcon(statusIconIdentifier);
-						// Set the effect for the icon, since it doesn't know it
-						statusIcon.SetEffect(this.m_cachedStatus);
 						statusIcon.SetIcon(this.m_cachedStatus.StatusIcon);
 						statusIcon.IncreaseStack(this.m_cachedStatus.StackCount);
 						if (this.m_cachedDisease && this.m_cachedDisease.IsReceding)
 						{
 							statusIcon.SetReceding();
 						}
+						// Set the effect for the icon, since it doesn't know it
+						statusIcon.SetEffect(this.m_cachedStatus);
 					}
 				}
 			}
@@ -55,12 +55,14 @@ public class StatusEffectPanel : UIElement
 				StatusEffectIcon statusIcon2 = this.GetStatusIcon("SummonWeapon");
 				statusIcon2.SetIcon(base.LocalCharacter.CurrentWeapon.SummonedEquipment.StatusIcon);
 				statusIcon2.IncreaseStack(1);
+				statusIcon2.SetSummonedEquipment(base.LocalCharacter.CurrentWeapon.SummonedEquipment);
 			}
 			if (base.LocalCharacter.CurrentWeapon.Imbued)
 			{
 				StatusEffectIcon statusIcon3 = this.GetStatusIcon("ImbueMainWeapon");
 				statusIcon3.SetIcon(base.LocalCharacter.CurrentWeapon.FirstImbue.ImbuedEffectPrefab.ImbueStatusIcon);
 				statusIcon3.IncreaseStack(1);
+				statusIcon3.SetImbueStack(base.LocalCharacter.CurrentWeapon.FirstImbue);
 			}
 		}
 		if (base.LocalCharacter.LeftHandWeapon && base.LocalCharacter.LeftHandWeapon != base.LocalCharacter.CurrentWeapon && base.LocalCharacter.LeftHandWeapon.Imbued)
@@ -68,12 +70,14 @@ public class StatusEffectPanel : UIElement
 			StatusEffectIcon statusIcon4 = this.GetStatusIcon("ImbueOffWeapon");
 			statusIcon4.SetIcon(base.LocalCharacter.LeftHandWeapon.FirstImbue.ImbuedEffectPrefab.ImbueStatusIcon);
 			statusIcon4.IncreaseStack(1);
+			statusIcon4.SetImbueStack(base.LocalCharacter.LeftHandWeapon.FirstImbue);
 		}
 		if (base.LocalCharacter.CurrentSummon && !base.LocalCharacter.CurrentSummon.IsDead)
 		{
 			StatusEffectIcon statusIcon5 = this.GetStatusIcon("SummonGhost");
 			statusIcon5.SetIcon(UIUtilities.SummonGhostStatusIcon);
 			statusIcon5.IncreaseStack(1);
+			statusIcon5.SetSummonedCharacter(base.LocalCharacter.CurrentSummon);
 		}
 		this.Reposition();
 	}

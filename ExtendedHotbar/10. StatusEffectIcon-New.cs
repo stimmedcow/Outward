@@ -45,10 +45,35 @@ public class StatusEffectIcon : UIElement
 		this.m_lblStack.text = ((this.m_currentStack <= 1) ? string.Empty : this.m_currentStack.ToString());
 		this.m_lblTimer.text = "";
 		// If the effect is set and is not permanent
+		var hasLife = false;
+		double lifespan = 0;
 		if (this.m_effect != null && !this.m_effect.Permanent)
 		{
+			lifespan = (double)this.m_effect.RemainingLifespan;
+			hasLife = true;
+		}
+		if (this.m_summonedEquipment != null)
+		{
+			lifespan = this.m_summonedEquipment.RemainingLifespan;
+			hasLife = true;
+		}
+		if (this.m_imbueStack != null)
+		{
+			lifespan = (double)this.m_imbueStack.RemainingLifespan;
+			hasLife = true;
+		}
+		if (this.m_summonedCharacter != null)
+		{
+			if(!this.m_summonedCharacter.RemainingLifespan.Equals(-1.0f))
+			{
+				lifespan = (double)this.m_summonedCharacter.RemainingLifespan;
+				hasLife = true;
+			}
+		}
+		if (hasLife)
+		{
 			// Show the lifespan in the format of 00:0
-			TimeSpan timeSpan = TimeSpan.FromSeconds((double)this.m_effect.RemainingLifespan);
+			TimeSpan timeSpan = TimeSpan.FromSeconds(lifespan);
 			this.m_lblTimer.text = string.Format("{0:D2}:{1:D2}", timeSpan.Minutes, timeSpan.Seconds);
 			// We want to center the text under the icon, sp get the width of the string, and then adjust the local position.
 			TextGenerationSettings generationSettings = this.m_lblTimer.GetGenerationSettings(this.m_lblTimer.rectTransform.rect.size);
@@ -108,6 +133,21 @@ public class StatusEffectIcon : UIElement
 		this.m_effect = effect;
 	}
 
+	public void SetSummonedEquipment(SummonedEquipment equipment)
+	{
+		this.m_summonedEquipment = equipment;
+	}
+	
+	public void SetImbueStack(ImbueStack imbueStack)
+	{
+		this.m_imbueStack = imbueStack;
+	}
+
+	public void SetSummonedCharacter(Character character)
+	{
+		this.m_summonedCharacter = character;
+	}
+
 	// Token: 0x0400387A RID: 14458
 	[SerializeField]
 	private Image m_icon;
@@ -131,4 +171,13 @@ public class StatusEffectIcon : UIElement
 
 	// TextGenerator to get the display width of the string we add
 	private TextGenerator m_textGenerator;
+	
+	// The equipment this icon represents
+	private SummonedEquipment m_summonedEquipment;
+
+	// The imbue stack character this icon represents
+	private ImbueStack m_imbueStack;
+
+	// The summoned character this icon represents
+	private Character m_summonedCharacter;
 }
