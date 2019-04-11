@@ -42,7 +42,7 @@ public class StatusEffectPanel : UIElement
 						{
 							statusIcon.SetReceding();
 						}
-						// Set the effect for the icon, since it doesn't know it
+						// Set the effect for the icon
 						statusIcon.SetEffect(this.m_cachedStatus);
 					}
 				}
@@ -55,6 +55,7 @@ public class StatusEffectPanel : UIElement
 				StatusEffectIcon statusIcon2 = this.GetStatusIcon("SummonWeapon");
 				statusIcon2.SetIcon(base.LocalCharacter.CurrentWeapon.SummonedEquipment.StatusIcon);
 				statusIcon2.IncreaseStack(1);
+				// Set the object for the icon
 				statusIcon2.SetSummonedEquipment(base.LocalCharacter.CurrentWeapon.SummonedEquipment);
 			}
 			if (base.LocalCharacter.CurrentWeapon.Imbued)
@@ -62,6 +63,7 @@ public class StatusEffectPanel : UIElement
 				StatusEffectIcon statusIcon3 = this.GetStatusIcon("ImbueMainWeapon");
 				statusIcon3.SetIcon(base.LocalCharacter.CurrentWeapon.FirstImbue.ImbuedEffectPrefab.ImbueStatusIcon);
 				statusIcon3.IncreaseStack(1);
+				// Set the object for the icon
 				statusIcon3.SetImbueStack(base.LocalCharacter.CurrentWeapon.FirstImbue);
 			}
 		}
@@ -70,6 +72,7 @@ public class StatusEffectPanel : UIElement
 			StatusEffectIcon statusIcon4 = this.GetStatusIcon("ImbueOffWeapon");
 			statusIcon4.SetIcon(base.LocalCharacter.LeftHandWeapon.FirstImbue.ImbuedEffectPrefab.ImbueStatusIcon);
 			statusIcon4.IncreaseStack(1);
+			// Set the object for the icon
 			statusIcon4.SetImbueStack(base.LocalCharacter.LeftHandWeapon.FirstImbue);
 		}
 		if (base.LocalCharacter.CurrentSummon && !base.LocalCharacter.CurrentSummon.IsDead)
@@ -77,11 +80,13 @@ public class StatusEffectPanel : UIElement
 			StatusEffectIcon statusIcon5 = this.GetStatusIcon("SummonGhost");
 			statusIcon5.SetIcon(UIUtilities.SummonGhostStatusIcon);
 			statusIcon5.IncreaseStack(1);
+			// Set the object for the icon
 			statusIcon5.SetSummonedCharacter(base.LocalCharacter.CurrentSummon);
 		}
 		this.Reposition();
 	}
 
+	// Our custom function to move the icon bar
 	private void Reposition()
 	{
 		if (this.m_statusIcons.Count == 0)
@@ -142,5 +147,6 @@ public class StatusEffectPanel : UIElement
 	// Token: 0x04003881 RID: 14465
 	private Disease m_cachedDisease;
 	
+	// Expose this data for other parts of the mod
 	public static float IconHeight;
 }

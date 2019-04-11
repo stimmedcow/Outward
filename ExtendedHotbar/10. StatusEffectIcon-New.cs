@@ -47,7 +47,7 @@ public class StatusEffectIcon : UIElement
 		double lifespan = 0;
 		if (this.m_effect != null && !this.m_effect.Permanent)
 		{
-			lifespan = (double)this.m_effect.RemainingLifespan;
+			lifespan = this.m_effect.RemainingLifespan;
 			hasLife = true;
 		}
 		if (this.m_summonedEquipment != null)
@@ -57,14 +57,14 @@ public class StatusEffectIcon : UIElement
 		}
 		if (this.m_imbueStack != null)
 		{
-			lifespan = (double)this.m_imbueStack.RemainingLifespan;
+			lifespan = this.m_imbueStack.RemainingLifespan;
 			hasLife = true;
 		}
 		if (this.m_summonedCharacter != null)
 		{
 			if(!this.m_summonedCharacter.RemainingLifespan.Equals(-1.0f))
 			{
-				lifespan = (double)this.m_summonedCharacter.RemainingLifespan;
+				lifespan = this.m_summonedCharacter.RemainingLifespan;
 				hasLife = true;
 			}
 		}
@@ -162,7 +162,7 @@ public class StatusEffectIcon : UIElement
 	// Token: 0x0400387D RID: 14461
 	private int m_currentStack;
 
-	[SerializeField]
+	// The timer display for the status effect
 	private Text m_lblTimer;
 
 	// The effect this icon represents

@@ -1478,6 +1478,7 @@ public class ControlsInput : MonoBehaviour
 		ToggleEffectMenu
 	}
 	
+	// Our custom function to map an input to a quickslot
 	public static bool QuickSlotInstantX(int _playerID, int index)
 	{
 		return ControlsInput.m_playerInputManager[_playerID].GetButtonDown(string.Format("QS_Instant{0}", index));
